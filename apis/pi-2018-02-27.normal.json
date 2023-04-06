@@ -576,6 +576,10 @@
         "NextToken": {
           "shape": "NextToken",
           "documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>"
+        },
+        "PeriodAlignment": {
+          "shape": "PeriodAlignment",
+          "documentation": "<p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>"
         }
       }
     },
@@ -618,7 +622,7 @@
     },
     "Limit": {
       "type": "integer",
-      "max": 10,
+      "max": 25,
       "min": 1
     },
     "ListAvailableResourceDimensionsRequest": {
@@ -709,7 +713,7 @@
     },
     "MaxResults": {
       "type": "integer",
-      "max": 20,
+      "max": 25,
       "min": 0
     },
     "MetricDimensionGroups": {
@@ -807,6 +811,13 @@
       "max": 8192,
       "min": 1,
       "pattern": "[\\s\\S]*"
+    },
+    "PeriodAlignment": {
+      "type": "string",
+      "enum": [
+        "END_TIME",
+        "START_TIME"
+      ]
     },
     "RequestString": {
       "type": "string",
