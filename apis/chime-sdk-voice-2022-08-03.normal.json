@@ -3820,6 +3820,13 @@
       },
       "documentation": "<p>The details of an Amazon Chime SDK Voice Connector call.</p>"
     },
+    "CallLegType": {
+      "type": "string",
+      "enum": [
+        "Caller",
+        "Callee"
+      ]
+    },
     "CallingName": {
       "type": "string",
       "pattern": "^$|^[a-zA-Z0-9 ]{2,15}$",
@@ -4060,6 +4067,10 @@
         "Endpoints": {
           "shape": "SipMediaApplicationEndpointList",
           "documentation": "<p>List of endpoints (Lambda ARNs) specified for the SIP media application.</p>"
+        },
+        "Tags": {
+          "shape": "TagList",
+          "documentation": "<p>The tags assigned to the SIP media application.</p>"
         }
       }
     },
@@ -4154,6 +4165,10 @@
         "RequireEncryption": {
           "shape": "Boolean",
           "documentation": "<p>Enables or disables encryption for the Voice Connector.</p>"
+        },
+        "Tags": {
+          "shape": "TagList",
+          "documentation": "<p>The tags assigned to the Voice Connector.</p>"
         }
       }
     },
@@ -4605,7 +4620,7 @@
       "members": {
         "Country": {
           "shape": "Country",
-          "documentation": "<p>The country. </p>"
+          "documentation": "<p>The country.</p>"
         },
         "AreaCode": {
           "shape": "AreaCode",
@@ -5548,7 +5563,7 @@
       "members": {
         "EnableSIPLogs": {
           "shape": "Boolean",
-          "documentation": "<p>Boolean that enables sending SIP message logs to Amazon CloudWatch logs.</p>"
+          "documentation": "<p>Boolean that enables sending SIP message logs to Amazon CloudWatch.</p>"
         },
         "EnableMediaMetricLogs": {
           "shape": "Boolean",
@@ -6550,7 +6565,7 @@
         },
         "Endpoints": {
           "shape": "SipMediaApplicationEndpointList",
-          "documentation": "<p>List of endpoints for SIP media application. Currently, only one endpoint per SIP media application is permitted.</p>"
+          "documentation": "<p>List of endpoints for a SIP media application. Currently, only one endpoint per SIP media application is permitted.</p>"
         },
         "CreatedTimestamp": {
           "shape": "Iso8601Timestamp",
@@ -6559,6 +6574,10 @@
         "UpdatedTimestamp": {
           "shape": "Iso8601Timestamp",
           "documentation": "<p>The time at which the SIP media application was updated.</p>"
+        },
+        "SipMediaApplicationArn": {
+          "shape": "NonEmptyString",
+          "documentation": "<p>The ARN of the SIP media application.</p>"
         }
       },
       "documentation": "<p>The details of the SIP media application, including name and endpoints. An AWS account can have multiple SIP media applications.</p>"
@@ -6811,6 +6830,10 @@
         "ClientRequestToken": {
           "shape": "ClientRequestId",
           "documentation": "<p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>"
+        },
+        "CallLeg": {
+          "shape": "CallLegType",
+          "documentation": "<p>Specifies which call leg to stream for speaker search.</p>"
         }
       }
     },
